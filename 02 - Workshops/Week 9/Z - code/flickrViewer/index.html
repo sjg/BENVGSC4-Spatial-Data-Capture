@@ -122,7 +122,7 @@
 							infowindow.setContent("");
 							
 							map.setCenter(new google.maps.LatLng(v.points.y, v.points.x));
-							$.getJSON("http://128.40.150.34:"+port+"/data/photoDescription/"+this.customInfo, function( data ) {
+							$.getJSON("http://dev.spatialdatacapture.org:"+port+"/data/photoDescription/"+this.customInfo, function( data ) {
 								var dateTaken = new XDate((data[0].date_uploaded * 1000)).toString("MMM d, yyyy HH:mm:ss");
 								var content = "<b>Photo ID: </b>"+v.pid+"<br/> <br/><b>Description:</b><br/> "+data[0].description.replaceAll("+", " ")+" <br/> <br/><b>Date Taken: </b> "+dateTaken+" <br/><b>Camera: </b> "+data[0].device.replaceAll("+", " ")+"<br/><b>Location:</b> "+ v.points.y + ", " + v.points.x +" <br/><br/> <b>Photo</b> <br/><br/> <img src='"+data[0].download_url+"' width='300px' alt='Description'>";
 						    	infowindow.setContent(content);
@@ -152,7 +152,7 @@
 			setAllMap(null);
 			markerArray = [];
 
-			$.getJSON( "http://128.40.150.34:"+port+"/data/"+lat+"/"+lng+"/500", function( data ) {
+			$.getJSON( "http://dev.spatialdatacapture.org:"+port+"/data/"+lat+"/"+lng+"/500", function( data ) {
 				$.each(data, function(k,v){
 					
 					var latLng = new google.maps.LatLng(v.points.y, v.points.x);
@@ -170,7 +170,7 @@
 							infowindow.setContent("");
 							
 							map.setCenter(new google.maps.LatLng(v.points.y, v.points.x));
-							$.getJSON("http://128.40.150.34:"+port+"/data/photoDescription/"+this.customInfo, function( data ) {
+							$.getJSON("http://dev.spatialdatacapture.org:"+port+"/data/photoDescription/"+this.customInfo, function( data ) {
 								var dateTaken = new XDate((data[0].date_uploaded * 1000)).toString("MMM d, yyyy HH:mm:ss");
 								var content = "<b>Photo ID: </b>"+v.pid+"<br/> <br/><b>Description:</b><br/> "+data[0].description.replaceAll("+", " ")+" <br/> <br/><b>Date Taken: </b> "+dateTaken+" <br/><b>Camera: </b> "+data[0].device.replaceAll("+", " ")+"<br/><b>Location:</b> "+ v.points.y + ", " + v.points.x +" <br/><br/> <b>Photo</b> <br/><br/> <img src='"+data[0].download_url+"' width='300px' alt='Description'>";
 						    	infowindow.setContent(content);

@@ -16,7 +16,7 @@ var mysql = require('mysql');
 
 // MySQL Connection Variables
 var connection = mysql.createConnection({
-  host     : '128.40.150.34',
+  host     : '',
   user     : '',
   password : '',
   database : ''
